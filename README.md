@@ -1,21 +1,15 @@
 # babel-preset-es2015-loose
 
-Babel preset that uses [modify-babel-preset] to modify [babel-preset-es2015]
-and enable [loose mode] where available.
+Babel preset that uses [modify-babel-preset] to modify [babel-preset-es2015-loose]
+and disable `use strict` for commonjs modules.
 
 ## Install
 
-Install both this preset, and the core 'babel-preset-es2015' that it modifies:
+Install both this preset, the core 'babel-preset-es2015', and 'babel-preset-es2015-loose' that it modifies:
 
 ```sh
-$ npm install --save-dev babel-preset-es2015-loose babel-preset-es2015
+$ npm install --save-dev babel-preset-es2015-loose-nostrict babel-preset-es2015-loose babel-preset-es2015
 ```
-
-Why do you need to install both? The idea is that `babel-preset-es2015-loose`
-will always be up to date because it will always use the version of
-`babel-preset-2015` that you have installed. If you don't want to update to
-the latest Babel release - you don't have to. Just pin `babel-preset-2015` to
-the version you need.
 
 ## Usage
 
@@ -25,24 +19,25 @@ the version you need.
 
 ```json
 {
-  "presets": ["es2015-loose"]
+  "presets": ["es2015-loose-nostrict"]
 }
 ```
 
 ### Via CLI
 
 ```sh
-$ babel script.js --presets es2015-loose
+$ babel script.js --presets es2015-loose-nostrict
 ```
 
 ### Via Node API
 
 ```javascript
 require("babel-core").transform("code", {
-  presets: ["es2015-loose"]
+  presets: ["es2015-loose-nostrict"]
 })
 ```
 
 [babel-preset-es2015]: https://www.npmjs.com/package/babel-preset-es2015
+[babel-preset-es2015-loose]: https://github.com/bkonkle/babel-preset-es2015-loose
 [loose mode]: http://www.2ality.com/2015/12/babel6-loose-mode.html
 [modify-babel-preset]: https://github.com/developit/modify-babel-preset
